@@ -1,0 +1,28 @@
+# Default ignored files
+/shelf/
+/.idea/workspace.xml
+
+# IDEA
+# ----
+.idea
+.idea/
+.shelf
+/*.iml
+/*.ipr
+/*.iws
+/out
+
+/out/*.*
+
+# ----
+**/*.class
+**/*.bin
+**/*.build
+**/*.out
+build
+build/
+**/*.jar
+
+# Maven specific
+
+target/
