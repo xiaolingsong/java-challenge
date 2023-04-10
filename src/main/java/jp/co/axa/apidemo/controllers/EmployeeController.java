@@ -44,11 +44,17 @@ public class EmployeeController {
     @PutMapping("/employees/{employeeId}")
     public void updateEmployee(@RequestBody Employee employee,
                                @PathVariable(name="employeeId")Long employeeId){
-        Employee emp = employeeService.getEmployee(employeeId);
-        if(emp != null){
-            employeeService.updateEmployee(employee);
+        // Validate Input
+        if(employee == null || employeeId == null){
+            throw new InvalidRequestException("Employee or ID is null");
+        }
+        if(employee.getId()!= null && !employeeId.equals(employee.getId())){
+            throw new InvalidRequestException("Mismatch request employeeID");
         }
 
+        employee.setId(employeeId);
+
+        employeeService.updateEmployee(employee);
     }
 
 }
